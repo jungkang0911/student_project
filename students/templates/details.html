@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card border-info shadow">
+            <div class="card-header bg-info text-white">
+                <h3 class="mb-0">學籍詳細資訊</h3>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-sm-4 fw-bold">學生姓名：</div>
+                    <div class="col-sm-8 text-secondary">{{ student.name }}</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4 fw-bold">學號：</div>
+                    <div class="col-sm-8 text-secondary">{{ student.sid }}</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4 fw-bold">電子信箱：</div>
+                    <div class="col-sm-8 text-secondary">{{ student.email }}</div>
+                </div>
+            </div>
+            <div class="card-footer bg-light d-flex justify-content-between">
+                <a href="{% url 'list' %}" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> 返回清單
+                </a>
+                <button class="btn btn-warning text-white">修改資料</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
