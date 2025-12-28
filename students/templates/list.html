@@ -9,8 +9,11 @@
 <table class="table table-hover">
     <thead class="table-dark">
         <tr>
-            <th>學號</th>
-            <th>姓名</th>
+       <th style="cursor: pointer;">
+    <a href="?sort=sid" class="text-white text-decoration-none">學號 ↑</a> 
+    <a href="?sort=-sid" class="text-white text-decoration-none">↓</a>
+</th>
+            <th><a href="?sort=name" class="text-white text-decoration-none">姓名 ↕</a></th>
             <th>功能</th>
         </tr>
     </thead>
@@ -19,8 +22,15 @@
         <tr>
             <td>{{ s.sid }}</td>
             <td><a href="{% url 'details' s.id %}" class="text-decoration-none">{{ s.name }}</a></td>
-            <td>
+           <td>
                 <a href="{% url 'details' s.id %}" class="btn btn-sm btn-info text-white">查看</a>
+                <a href="{% url 'edit' s.id %}" class="btn btn-sm btn-warning text-white">修改</a>
+                
+                <a href="{% url 'delete' s.id %}" 
+                class="btn btn-sm btn-danger" 
+                onclick="return confirm('您確定要刪除學生 {{ s.name }} 嗎？')">
+                刪除
+                </a>
             </td>
         </tr>
         {% empty %}

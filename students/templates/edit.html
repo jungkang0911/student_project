@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>修改學生資料</h2>
+<form method="POST" class="mt-3">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">學生姓名</label>
+        <input type="text" name="name" class="form-control" value="{{ student.name }}" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">學號</label>
+        <input type="text" name="sid" class="form-control" value="{{ student.sid }}" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">電子信箱</label>
+        <input type="email" name="email" class="form-control" value="{{ student.email }}" required>
+    </div>
+    <button type="submit" class="btn btn-warning text-white">確認修改</button>
+    <a href="{% url 'list' %}" class="btn btn-outline-secondary">取消</a>
+</form>
+{% endblock %}
